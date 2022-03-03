@@ -34,6 +34,7 @@ THIRD_PARTY_APPS = [
 
 USER_DEFINED_APPS = [
     'users',
+    'tasks',
 ]
 
 
