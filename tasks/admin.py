@@ -14,3 +14,6 @@ class TaskAdminModel(admin.ModelAdmin):
     search_fields = ['id', 'title']
     readonly_fields = ['id']
     ordering = ['-id']
+    list_filter = [
+        'status'
+    ]

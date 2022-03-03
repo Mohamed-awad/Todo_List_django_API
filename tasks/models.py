@@ -70,3 +70,13 @@ class Task(models.Model):
         """Mark task as finished or completed"""
         self.status = self.FINISHED
         self.save()
+
+    def mark_pending(self):
+        """Mark task as pending"""
+        self.status = self.PENDING
+        self.save()
+
+    def mark_overdue(self):
+        """Mark task as overdue"""
+        self.status = self.OVERDUE
+        self.save()
