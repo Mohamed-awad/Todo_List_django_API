@@ -2,6 +2,7 @@ from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from rest_framework.response import Response
+from rest_framework.views import APIView
 
 from tasks.models import Task
 from tasks.api.serializers import TaskSerializer
@@ -35,5 +36,28 @@ class TaskListView(generics.ListAPIView):
             "status": status.HTTP_200_OK,
             'message': 'success',
             'data': response.data
+        })
+
+
+class CompleteTaskView(APIView):
+    """
+    view for mark task as finished
+    """
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request, pk):
+        try:
+            task = Task.objects.get(pk=pk)
+            task.mark_finished()
+        except Task.DoesNotExist:
+            return Response(status=status.HTTP_404_NOT_FOUND, data={
+                "status": status.HTTP_404_NOT_FOUND,
+                'message': 'task not found',
+                'data': []
+            })
+        return Response({
+            "status": status.HTTP_200_OK,
+            'message': 'task marked as completed successfully',
+            'data': []
         })
 
