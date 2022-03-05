@@ -53,11 +53,11 @@ class CompleteTaskView(APIView):
             return Response(status=status.HTTP_404_NOT_FOUND, data={
                 "status": status.HTTP_404_NOT_FOUND,
                 'message': 'task not found',
-                'data': []
+                'data': {}
             })
         return Response({
             "status": status.HTTP_200_OK,
             'message': 'task marked as completed successfully',
-            'data': []
+            'data': {}
         })
 

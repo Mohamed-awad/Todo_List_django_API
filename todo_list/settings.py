@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -145,3 +145,11 @@ REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 10
 }
+
+# mkdocs configs
+
+DOCS_DIR = os.path.join(BASE_DIR, 'docs/static/mkdocs_build')
+DOCS_STATIC_NAMESPACE = os.path.basename(DOCS_DIR)
+STATICFILES_DIRS = [
+    'docs/static/mkdocs_build',
+]

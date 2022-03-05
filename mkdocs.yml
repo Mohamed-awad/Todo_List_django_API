@@ -1,0 +1,28 @@
+site_name: Todo List Api Documentation
+
+docs_dir: 'mkdocs'
+site_dir: 'docs/static/mkdocs_build'
+
+nav:
+  - Home: index.md
+  - Table Of Contents: table_of_contents.md
+  - Definitions and Acronyms: definitions_and_acronyms.md
+  - Signup API: signup.md
+  - Login API: login.md
+  - Logout API: logout.md
+  - List tasks API: list_tasks.md
+  - List tasks filtered by finished or unfinished API: list_tasks_filtered_by_status.md
+  - Complete task API: complete_task.md
+
+theme:
+    name: readthedocs
+    highlightjs: true
+    hljs_languages:
+        - yaml
+        - rust
+
+markdown_extensions:
+  - attr_list
+
+extra:
+    version: 1.0
