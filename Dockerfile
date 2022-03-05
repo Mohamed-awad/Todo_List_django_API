@@ -31,7 +31,11 @@ COPY . /usr/src/todo_list_app
 
 # run database migrations
 RUN python manage.py makemigrations \
-    && python manage.py migrate
+    && python manage.py migrate \
+    && python manage.py makemigrations tasks \
+    && python manage.py migrate \
+    && python manage.py makemigrations users \
+    && python manage.py migrate 
 
 # build docs
 RUN mkdocs build
